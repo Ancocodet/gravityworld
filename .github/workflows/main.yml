@@ -2,9 +2,10 @@ name: Game Build
 
 on:
   push:
-    branches: [ dev ]
-  pull_request:
-    branches: [ dev ]
+    branches: [ main ]
+  release:
+    branches: [ main ]
+    types: [published]
   workflow_dispatch:
 
 jobs:
@@ -29,10 +30,11 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
-      - uses: actions/upload-artifact@v2
+      - name: 'Get Current Version tag'
+        id: versiontag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
-          name: Windows-Build
-          path: build
+          fallback: 0.0.1
       - uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
@@ -40,6 +42,7 @@ jobs:
           ITCH_GAME: gravityworld
           ITCH_USER: ancocodet
           PACKAGE: build
+          VERSION: ${{ steps.versiontag.outputs.tag }}
   build-linux:
     runs-on: ubuntu-latest
     steps:
@@ -61,10 +64,11 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneLinux64
-      - uses: actions/upload-artifact@v2
+      - name: 'Get Current Version tag'
+        id: versiontag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
-          name: Linux-Build
-          path: build
+          fallback: 0.0.1
       - uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
@@ -72,3 +76,4 @@ jobs:
           ITCH_GAME: gravityworld
           ITCH_USER: ancocodet
           PACKAGE: build
+          VERSION: ${{ steps.versiontag.outputs.tag }}
