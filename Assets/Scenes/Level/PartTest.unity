@@ -1847,7 +1847,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
     m_ActionId: 7fd38eb3-2519-4b26-bf80-036c2aea942d
     m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 0

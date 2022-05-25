@@ -96,6 +96,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -688,6 +689,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      player_tilesheet_4: 21300008
+      player_tilesheet_11: 21300022
+      player_tilesheet_2: 21300004
+      player_tilesheet_8: 21300016
+      player_tilesheet_13: 21300026
+      player_tilesheet_14: 21300028
+      player_tilesheet_19: 21300038
+      player_tilesheet_12: 21300024
+      player_tilesheet_22: 21300044
+      player_tilesheet_1: 21300002
+      player_tilesheet_18: 21300036
+      player_tilesheet_9: 21300018
+      player_tilesheet_17: 21300034
+      player_tilesheet_10: 21300020
+      player_tilesheet_20: 21300040
+      player_tilesheet_7: 21300014
+      player_tilesheet_0: 21300000
+      player_tilesheet_3: 21300006
+      player_tilesheet_15: 21300030
+      player_tilesheet_5: 21300010
+      player_tilesheet_21: 21300042
+      player_tilesheet_23: 21300046
+      player_tilesheet_6: 21300012
+      player_tilesheet_16: 21300032
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

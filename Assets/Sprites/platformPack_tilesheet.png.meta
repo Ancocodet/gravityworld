@@ -279,6 +279,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -2152,6 +2153,92 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      platformPack_tilesheet_71: 21300142
+      platformPack_tilesheet_13: 21300026
+      platformPack_tilesheet_18: 21300036
+      platformPack_tilesheet_34: 21300068
+      platformPack_tilesheet_36: 21300072
+      platformPack_tilesheet_62: 21300124
+      platformPack_tilesheet_0: 21300000
+      platformPack_tilesheet_39: 21300078
+      platformPack_tilesheet_8: 21300016
+      platformPack_tilesheet_3: 21300006
+      platformPack_tilesheet_6: 21300012
+      platformPack_tilesheet_41: 21300082
+      platformPack_tilesheet_45: 21300090
+      platformPack_tilesheet_65: 21300130
+      platformPack_tilesheet_66: 21300132
+      platformPack_tilesheet_16: 21300032
+      platformPack_tilesheet_50: 21300100
+      platformPack_tilesheet_84: 21300168
+      platformPack_tilesheet_4: 21300008
+      platformPack_tilesheet_23: 21300046
+      platformPack_tilesheet_47: 21300094
+      platformPack_tilesheet_68: 21300136
+      platformPack_tilesheet_33: 21300066
+      platformPack_tilesheet_82: 21300164
+      platformPack_tilesheet_40: 21300080
+      platformPack_tilesheet_83: 21300166
+      platformPack_tilesheet_1: 21300002
+      platformPack_tilesheet_10: 21300020
+      platformPack_tilesheet_22: 21300044
+      platformPack_tilesheet_35: 21300070
+      platformPack_tilesheet_38: 21300076
+      platformPack_tilesheet_74: 21300148
+      platformPack_tilesheet_46: 21300092
+      platformPack_tilesheet_76: 21300152
+      platformPack_tilesheet_78: 21300156
+      platformPack_tilesheet_79: 21300158
+      platformPack_tilesheet_63: 21300126
+      platformPack_tilesheet_72: 21300144
+      platformPack_tilesheet_77: 21300154
+      platformPack_tilesheet_81: 21300162
+      platformPack_tilesheet_12: 21300024
+      platformPack_tilesheet_24: 21300048
+      platformPack_tilesheet_53: 21300106
+      platformPack_tilesheet_70: 21300140
+      platformPack_tilesheet_73: 21300146
+      platformPack_tilesheet_52: 21300104
+      platformPack_tilesheet_2: 21300004
+      platformPack_tilesheet_44: 21300088
+      platformPack_tilesheet_26: 21300052
+      platformPack_tilesheet_9: 21300018
+      platformPack_tilesheet_31: 21300062
+      platformPack_tilesheet_37: 21300074
+      platformPack_tilesheet_49: 21300098
+      platformPack_tilesheet_58: 21300116
+      platformPack_tilesheet_21: 21300042
+      platformPack_tilesheet_19: 21300038
+      platformPack_tilesheet_61: 21300122
+      platformPack_tilesheet_48: 21300096
+      platformPack_tilesheet_7: 21300014
+      platformPack_tilesheet_5: 21300010
+      platformPack_tilesheet_42: 21300084
+      platformPack_tilesheet_80: 21300160
+      platformPack_tilesheet_56: 21300112
+      platformPack_tilesheet_32: 21300064
+      platformPack_tilesheet_14: 21300028
+      platformPack_tilesheet_30: 21300060
+      platformPack_tilesheet_59: 21300118
+      platformPack_tilesheet_67: 21300134
+      platformPack_tilesheet_64: 21300128
+      platformPack_tilesheet_15: 21300030
+      platformPack_tilesheet_20: 21300040
+      platformPack_tilesheet_17: 21300034
+      platformPack_tilesheet_11: 21300022
+      platformPack_tilesheet_51: 21300102
+      platformPack_tilesheet_28: 21300056
+      platformPack_tilesheet_54: 21300108
+      platformPack_tilesheet_43: 21300086
+      platformPack_tilesheet_55: 21300110
+      platformPack_tilesheet_69: 21300138
+      platformPack_tilesheet_57: 21300114
+      platformPack_tilesheet_60: 21300120
+      platformPack_tilesheet_75: 21300150
+      platformPack_tilesheet_25: 21300050
+      platformPack_tilesheet_27: 21300054
+      platformPack_tilesheet_29: 21300058
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

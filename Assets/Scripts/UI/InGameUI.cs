@@ -41,6 +41,7 @@ public class InGameUI : MonoBehaviour {
 
     public void Resume()
     {
+        Debug.Log("Resume game");
         if(IsPaused && !IsFailure)
         {
             IsPaused = false;
