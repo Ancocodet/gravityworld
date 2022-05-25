@@ -14,6 +14,7 @@ public class Cube : MonoBehaviour {
     public GameObject particle;
     
     private bool sky = false;
+    private BufferAction bufferedAction = BufferAction.NONE;
 
     void Start()
     {
@@ -21,6 +22,26 @@ public class Cube : MonoBehaviour {
         rbd2 = GetComponent<Rigidbody2D>();
     }
 
+    void Update()
+    {
+        if(canJump && bufferedAction != BufferAction.NONE)
+        {
+            if(bufferedAction == BufferAction.UP)
+            {
+                moveUp();
+            }
+            else if(bufferedAction == BufferAction.DOWN)
+            {
+                moveDown();
+            }
+            else
+            {
+                switchGravity();
+            }
+            bufferedAction = BufferAction.NONE;
+        }
+    }
+        
     public void moveUp()
     {
         if(!sky && canJump)
@@ -30,6 +51,10 @@ public class Cube : MonoBehaviour {
             rbd2.gravityScale = rbd2.gravityScale * -1;
             rbd2.rotation = 180f;
             sky = true;
+        }
+        else if(!sky && !canJump)
+        {
+            bufferedAction = BufferAction.UP;
         }
     }
     
@@ -43,6 +68,30 @@ public class Cube : MonoBehaviour {
             rbd2.rotation = 0f;
             sky = false;
         }
+        else if(sky && !canJump)
+        {
+            bufferedAction = BufferAction.DOWN;
+        }
+    }
+    
+    public void switchGravity()
+    {
+        if(sky && canJump)
+        {
+            moveDown();
+            bufferedAction = BufferAction.NONE;
+        }
+        else if(!sky && canJump)
+        {
+            moveUp();
+            bufferedAction = BufferAction.NONE;
+        }
+        else
+        {
+            if(bufferedAction == BufferAction.NONE)
+                bufferedAction = BufferAction.SWITCH;
+        }
+        Debug.Log("Input Buffer: " + bufferedAction);
     }
     
     void OnCollisionEnter2D(Collision2D other)

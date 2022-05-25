@@ -79,8 +79,9 @@ public class InGameUI : MonoBehaviour {
         scoreBlock.SetActive(false);
         failureMenu.SetActive(true);
         
-        if(ScoreManager.Instance.isNewHighScore())
+        if(ScoreManager.Instance.isNewHighscore())
         {
+            ScoreManager.Instance.checkScore();
             highScore.SetActive(true);
         }
         

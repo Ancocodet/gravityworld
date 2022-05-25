@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.IO;
 using TMPro;
 
 public class ScoreManager : MonoBehaviour
@@ -7,48 +9,65 @@ public class ScoreManager : MonoBehaviour
     
     public static ScoreManager Instance { get; private set; }
     
+    private Highscore highscore;
+    
     public TMP_Text scoreView;
     public TMP_Text scoreViewTwo;
     
-    public float Score { get; private set; }
+    public float score { get; private set; }
     public bool newHighscore { get; private set; } = false;
     
     private void Awake()
     {
         Instance = this;
+        highscore = LoadHighscoreFromJson();
     }
     
     public void increaseScore(float amount)
     {
-        Score += amount;
+        score += amount;
         
-        scoreView.text = Score.ToString();
-        scoreViewTwo.text = "Score: " + Score.ToString();
+        scoreView.text = score.ToString();
+        scoreViewTwo.text = "Score: " + score.ToString();
         
-        if(Score >= getHighScore())
+        if(score >= highscore.score)
         {
             if(!newHighscore)
                 newHighscore = true;
-            saveScore();
         }
     }
     
-    
-    private void saveScore()
+    public void checkScore()
     {
-        PlayerPrefs.SetFloat("highScore", Score);
-        PlayerPrefs.Save();
+        if(score >= highscore.score)
+        {
+            highscore.score = score;
+            SaveHighscoreToJson();
+        }
     }
     
-    public bool isNewHighScore()
+    public bool isNewHighscore()
     {
         return newHighscore;
     }
     
-    public float getHighScore()
+    private Highscore LoadHighscoreFromJson()
     {
-        return PlayerPrefs.GetFloat("highScore");
+        var path = Application.persistentDataPath + "\\highscore.json";
+        if (!File.Exists(path)) {
+            return new Highscore() {
+                score = 0.0f
+            };
+        }
+
+        var json = File.ReadAllText(path, System.Text.Encoding.UTF8);
+        return JsonUtility.FromJson<Highscore>(json);
     }
     
+    private void SaveHighscoreToJson()
+    {
+        var path = Application.persistentDataPath + "\\highscore.json";
+        File.WriteAllText(path, JsonUtility.ToJson(highscore));
+    }
     
 }
