@@ -11,6 +11,9 @@ public class Cube : MonoBehaviour {
     private bool canJump;
     private Rigidbody2D rbd2;
     
+    private InGameUI ui;
+    private GameManager manager;
+    
     public GameObject particle;
     
     private bool sky = false;
@@ -22,6 +25,9 @@ public class Cube : MonoBehaviour {
     {
         canJump = true;
         rbd2 = GetComponent<Rigidbody2D>();
+        
+        manager = FindObjectOfType<GameManager>();
+        ui = FindObjectOfType<InGameUI>();
     }
 
     void Update()
@@ -85,19 +91,20 @@ public class Cube : MonoBehaviour {
         {
             moveDown();
             bufferedAction = BufferAction.NONE;
-            switchDone = true;
         }
         else if(!sky && canJump)
         {
             moveUp();
             bufferedAction = BufferAction.NONE;
-            switchDone = true;
         }
-        else
+        else if(!canJump)
         {
-            if(bufferedAction == BufferAction.NONE)
-                bufferedAction = BufferAction.SWITCH;
+            if(sky && bufferedAction == BufferAction.NONE)
+                bufferedAction = BufferAction.DOWN;
+            if(!sky && bufferedAction == BufferAction.NONE)
+                            bufferedAction = BufferAction.UP;
         }
+        StartCoroutine(ReAllowSwitch());
         Debug.Log("Input Buffer: " + bufferedAction);
     }
     
@@ -123,11 +130,18 @@ public class Cube : MonoBehaviour {
     {
         if (other.tag == "Obstacle")
         {
-            FindObjectOfType<InGameUI>().Failed();
+            ui.Failed();
         }
         else if (other.gameObject.tag == "Multiplier")
         {
-            FindObjectOfType<GameManager>().increaseMultiplier();
+            manager.increaseMultiplier();
         }
+    }
+    
+    IEnumerator ReAllowSwitch()
+    {
+        yield return new WaitForSeconds(0.15f);
+        if(!switchDone)
+            switchDone = true;
     }
 }
