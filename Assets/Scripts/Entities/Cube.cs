@@ -14,6 +14,8 @@ public class Cube : MonoBehaviour {
     public GameObject particle;
     
     private bool sky = false;
+    
+    private bool switchDone = true;
     private BufferAction bufferedAction = BufferAction.NONE;
 
     void Start()
@@ -26,11 +28,11 @@ public class Cube : MonoBehaviour {
     {
         if(canJump && bufferedAction != BufferAction.NONE)
         {
-            if(bufferedAction == BufferAction.UP)
+            if(bufferedAction == BufferAction.UP && !sky)
             {
                 moveUp();
             }
-            else if(bufferedAction == BufferAction.DOWN)
+            else if(bufferedAction == BufferAction.DOWN && sky)
             {
                 moveDown();
             }
@@ -38,6 +40,7 @@ public class Cube : MonoBehaviour {
             {
                 switchGravity();
             }
+            switchDone = true;
             bufferedAction = BufferAction.NONE;
         }
     }
@@ -76,15 +79,19 @@ public class Cube : MonoBehaviour {
     
     public void switchGravity()
     {
+        if(!switchDone) return;
+        switchDone = false;
         if(sky && canJump)
         {
             moveDown();
             bufferedAction = BufferAction.NONE;
+            switchDone = true;
         }
         else if(!sky && canJump)
         {
             moveUp();
             bufferedAction = BufferAction.NONE;
+            switchDone = true;
         }
         else
         {

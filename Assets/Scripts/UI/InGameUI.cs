@@ -73,7 +73,6 @@ public class InGameUI : MonoBehaviour {
         IsPaused = true;
         
         playerInput.SwitchCurrentActionMap("UI");
-        
         eventSystem.SetSelectedGameObject(restartButton);
                        
         scoreBlock.SetActive(false);
