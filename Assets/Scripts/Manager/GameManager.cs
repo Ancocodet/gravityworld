@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     public float multiplierDecrease = 2f;
     
     public float pointCooldown = 0.2f;
+    public EGameState gameState = EGameState.PLAYING;
 
     void Start () {
         StartCoroutine(updateScore());
@@ -33,14 +34,15 @@ public class GameManager : MonoBehaviour {
     IEnumerator updateScore()
     {
         yield return new WaitForSeconds(pointCooldown);
-        ScoreManager.Instance.increaseScore(multiplier);
+        if(gameState == EGameState.PLAYING)
+            ScoreManager.Instance.increaseScore(multiplier);
         StartCoroutine(updateScore());
     }
     
     IEnumerator decreaseMultiplier()
     {
         yield return new WaitForSeconds(multiplierDecrease);
-        if(multiplier > 0f)
+        if(gameState == EGameState.PLAYING && multiplier > 0f)
             multiplier -= 1f;
     }
 }

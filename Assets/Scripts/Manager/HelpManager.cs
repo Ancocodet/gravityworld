@@ -11,13 +11,13 @@ public class HelpManager : MonoBehaviour
     public GameObject gamepadHelp;
     public GameObject touchHelp;
     
-    void Update()
+    void FixedUpdate()
     {
         onSchemeChange();
     }
     
     public void onSchemeChange()
-    {
+    {   
         if(checkCurrentSchema())
         {
             switch(currentSchema)

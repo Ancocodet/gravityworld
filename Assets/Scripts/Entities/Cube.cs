@@ -32,6 +32,8 @@ public class Cube : MonoBehaviour {
 
     void Update()
     {
+        if(manager.gameState != EGameState.PLAYING) return;
+        
         if(canJump && bufferedAction != BufferAction.NONE)
         {
             if(bufferedAction == BufferAction.UP && !sky)

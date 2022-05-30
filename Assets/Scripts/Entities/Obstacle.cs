@@ -8,9 +8,12 @@ public class Obstacle : MonoBehaviour
     public float speed = -10f;
     private Rigidbody2D myRB;
 
+    private GameManager gameManager;
+
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
+        gameManager = FindObjectOfType<GameManager>();
     }
     
     public void changeGravity()
@@ -39,6 +42,7 @@ public class Obstacle : MonoBehaviour
 
     void Update()
     {
+        if(gameManager.gameState != EGameState.PLAYING) return;
         myRB.velocity = new Vector2(speed, 0f);
     }
     

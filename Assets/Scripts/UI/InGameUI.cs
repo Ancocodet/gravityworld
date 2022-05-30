@@ -24,6 +24,13 @@ public class InGameUI : MonoBehaviour {
     
     public string menuScene = "Menu";
     
+    private GameManager gameManager;
+    
+    void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+    
     public void switchPause()
     {
         if (!IsFailure)
@@ -41,14 +48,13 @@ public class InGameUI : MonoBehaviour {
 
     public void Resume()
     {
-        Debug.Log("Resume game");
         if(IsPaused && !IsFailure)
         {
             IsPaused = false;
             
             pauseMenu.SetActive(false);
             playerInput.SwitchCurrentActionMap("Player");
-            Time.timeScale = 1f;
+            gameManager.gameState = EGameState.PLAYING;
             scoreBlock.SetActive(true);
         }
     }
@@ -61,7 +67,6 @@ public class InGameUI : MonoBehaviour {
             Time.timeScale = 0f;
             
             playerInput.SwitchCurrentActionMap("UI");
-            eventSystem.SetSelectedGameObject(resumeButton);
             
             scoreBlock.SetActive(false);
             pauseMenu.SetActive(true);
@@ -72,6 +77,8 @@ public class InGameUI : MonoBehaviour {
     {   
         IsFailure = true;
         IsPaused = true;
+        
+        gameManager.gameState = EGameState.DIED;
         
         playerInput.SwitchCurrentActionMap("UI");
         eventSystem.SetSelectedGameObject(restartButton);
@@ -84,20 +91,16 @@ public class InGameUI : MonoBehaviour {
             ScoreManager.Instance.checkScore();
             highScore.SetActive(true);
         }
-        
-        Time.timeScale = 0f;
     }
 
     public void LoadMenu()
     {
-        Time.timeScale = 1f;
         IsPaused = false;
         SceneManager.LoadScene(menuScene);
     }
 
     public void RestartGame()
     {
-        Time.timeScale = 1f;
         IsPaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
