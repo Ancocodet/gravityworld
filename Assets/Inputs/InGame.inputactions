@@ -208,9 +208,20 @@
                 },
                 {
                     "name": "",
+                    "id": "126bef54-66a8-4916-ac8e-ab9907a78b3a",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Switch Gravity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3e660ce0-f607-4785-afd8-d7c54b9b3519",
                     "path": "<Touchscreen>/touch*/press",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Touch",
                     "action": "Switch Gravity",
@@ -221,20 +232,9 @@
                     "name": "",
                     "id": "4e89d97d-c4eb-424b-90e4-db035620f7bb",
                     "path": "<Gamepad>/dpad/down",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Switch Gravity",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "126bef54-66a8-4916-ac8e-ab9907a78b3a",
-                    "path": "<Keyboard>/space",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
                     "action": "Switch Gravity",
                     "isComposite": false,
                     "isPartOfComposite": false
