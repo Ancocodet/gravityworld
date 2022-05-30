@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private float gravityScale = 5.0f; 
     private Rigidbody2D body;
     
+    [SerializeField] private float switchTimeout = 0.25f;
+    private float lastSwitch = 0.0f;
+    
     private bool canSwitch = false;
     private ENextAction nextAction = ENextAction.NONE;
     
@@ -31,24 +34,22 @@ public class PlayerController : MonoBehaviour
             
             if(nextAction == ENextAction.UP  && body.gravityScale > 0f)
             {
-                Debug.Log("Moving Up");
                 moved = true;
                 body.gravityScale = gravityScale * -1f;
                 body.rotation = 180f;
             }
             else if(nextAction == ENextAction.DOWN  && body.gravityScale < 0f)
             {
-                Debug.Log("Moving Down");
                 moved = true;
                 body.gravityScale = gravityScale;
                 body.rotation = 0f;
             }
             else if(nextAction == ENextAction.SWITCH)
             {
-                Debug.Log("Switching");
                 moved = true;
+                
                 body.gravityScale *= -1f;
-                body.rotation += body.rotation == 0f ? 180f : 0f;
+                body.rotation = (body.gravityScale > 0f) ? 0f : 180f;
             }
             
             nextAction = ENextAction.NONE;
@@ -59,7 +60,11 @@ public class PlayerController : MonoBehaviour
     
     public void SwitchGravity()
     {
-        nextAction = ENextAction.SWITCH;
+        if(nextAction != ENextAction.SWITCH && lastSwitch + switchTimeout < Time.time)
+        {
+            lastSwitch = Time.time;
+            nextAction = ENextAction.SWITCH;
+        }
     }
     
     public void MoveUp()
