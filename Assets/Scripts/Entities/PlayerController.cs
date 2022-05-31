@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     
     public float xPosition = -7.5f;
     
-    private float gravityScale = 5.0f; 
+    [SerializeField] private float gravityScale = 5.0f; 
     private Rigidbody2D body;
     
     [SerializeField] private float switchTimeout = 0.25f;

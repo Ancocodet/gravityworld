@@ -26,8 +26,8 @@ public class ColorChange : MonoBehaviour
             && mousePosition.x >= 0 && mousePosition.y >= 0)
         {
             GetComponent<RectTransform>().position = new Vector2(
-                                (mousePosition.x / Screen.width) * 5,
-                                (mousePosition.y / Screen.height) * 5
+                                (mousePosition.x / Screen.width) * -5,
+                                (mousePosition.y / Screen.height) * -5
                             );
         }
     }
@@ -36,5 +36,5 @@ public class ColorChange : MonoBehaviour
     {
          var v = Mathf.Repeat(time, 2);
          return time < 1 ? time : 2 - time;
-     }
+    }
 }

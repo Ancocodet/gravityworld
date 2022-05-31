@@ -3,6 +3,6 @@
     
     PLAYING,
     PAUSED,
-    DIED
+    FAILED
     
 }

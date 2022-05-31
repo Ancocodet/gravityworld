@@ -78,7 +78,7 @@ public class InGameUI : MonoBehaviour {
         IsFailure = true;
         IsPaused = true;
         
-        gameManager.gameState = EGameState.DIED;
+        gameManager.gameState = EGameState.FAILED;
         
         playerInput.SwitchCurrentActionMap("UI");
         eventSystem.SetSelectedGameObject(restartButton);
