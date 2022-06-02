@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravityScale = 5.0f; 
     private Rigidbody2D body;
     
+    private UIController ui;
+    
     [SerializeField] private float switchTimeout = 0.25f;
     private float lastSwitch = 0.0f;
     
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         body.gravityScale = gravityScale;
+        
+        ui = FindObjectOfType<UIController>();
         
         transform.position = new Vector2(xPosition, (Camera.main.orthographicSize * -1f) + (1f + transform.localScale.y/2)); 
     }
@@ -81,11 +85,22 @@ public class PlayerController : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Ground")
+        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Obstacle")
         {
-            Debug.Log("Collided");
             if (!canSwitch)
                 canSwitch = true;
+        }
+    }
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Obstacle")
+        {
+            ui.Failed();
+        }
+        else if (other.gameObject.tag == "Multiplier")
+        {
+            
         }
     }
     

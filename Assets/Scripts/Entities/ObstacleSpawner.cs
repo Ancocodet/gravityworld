@@ -11,7 +11,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private GameObject top;
     [SerializeField] private GameObject bottom;
 
-    [SerializeField] private GameObject[] prefabs;
+    [SerializeField] private GameObject[] obstaclePrefabs;
     private List<GameObject> obstacles = new List<GameObject>();
 
     public float minTime = 0.75f;
@@ -27,11 +27,11 @@ public class ObstacleSpawner : MonoBehaviour
         transform.position = new Vector2( (Camera.main.orthographicSize * 2f) + (transform.localScale.x * 10f), 0f);
         top.transform.position = new Vector2(
             transform.position.x,
-            topGround.transform.position.y - (topGround.transform.localScale.y)
+            topGround.transform.position.y - (topGround.transform.localScale.y + 0.02f)
         );
         bottom.transform.position = new Vector2(
             transform.position.x,
-            bottomGround.transform.position.y + (bottomGround.transform.localScale.y)
+            bottomGround.transform.position.y + (bottomGround.transform.localScale.y + 0.02f)
         );
     }
 
@@ -43,22 +43,20 @@ public class ObstacleSpawner : MonoBehaviour
     private void InitParts()
     {
         int index = 0;
-        for (int i = 0; i < prefabs.Length * 50; i++)
+        for (int i = 0; i < obstaclePrefabs.Length * 50; i++)
         {
-            GameObject obj = Instantiate(prefabs[index], transform.position, Quaternion.identity);
+            GameObject obj = Instantiate(obstaclePrefabs[index], transform.position, Quaternion.identity);
             obj.SetActive(false);
             obstacles.Add(obj);
 
             index++;
-            if (index == prefabs.Length)
+            if (index == obstaclePrefabs.Length)
                 index = 0;
         }
     }
 
     IEnumerator SpawnPart()
     {
-        yield return new WaitForSeconds(Random.Range(minTime, maxTime));
-        
         int index = Random.Range(0, obstacles.Count);
         
         while (true)
@@ -72,11 +70,13 @@ public class ObstacleSpawner : MonoBehaviour
                 if(nextTop)
                 {
                     newObstacle.transform.position = top.transform.position;
+                    newObstacle.transform.rotation = new Quaternion(0f, 0f, 180f, 1);
                     nextTop = false;
                 }
                 else
                 {
                     newObstacle.transform.position = bottom.transform.position;
+                    newObstacle.transform.rotation = new Quaternion(0f, 0f, 0f, 1);
                     nextTop = true;
                 }
                 
@@ -94,7 +94,8 @@ public class ObstacleSpawner : MonoBehaviour
                 index = Random.Range(0, obstacles.Count);
             }
         }
-
+        
+        yield return new WaitForSeconds(Random.Range(minTime, maxTime));
         StartCoroutine(SpawnPart());
     }
 }

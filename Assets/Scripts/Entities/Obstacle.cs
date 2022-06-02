@@ -5,19 +5,21 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
 
-    public float speed = -10f;
     private Rigidbody2D myRB;
-
+    private GameController gameController;
 
     void Start()
-    {
+    {  
+        gameController = FindObjectOfType<GameController>();
         myRB = GetComponent<Rigidbody2D>();
     }
     
 
     void Update()
     {
-        myRB.velocity = new Vector2(speed, 0f);
+        Vector2 current = transform.position;
+        current.x -= gameController.GetSpeed() * Time.deltaTime;
+        transform.position = current;
     }
     
 

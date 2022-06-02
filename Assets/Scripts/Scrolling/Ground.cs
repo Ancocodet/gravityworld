@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour {
 
-    public float speed = 1f;
     public bool sky = false;
     public bool moving = true;
 
     private Vector2 offset = Vector2.zero;
     private Material mat;
+    private GameController gameController;
 
     void Start()
     {
+        gameController = FindObjectOfType<GameController>();
         mat = GetComponent<Renderer>().material;
         offset = mat.GetTextureOffset("_MainTex");
 
@@ -29,7 +30,7 @@ public class Ground : MonoBehaviour {
 
     void Update()
     {
-        offset.x += speed * Time.deltaTime;
+        offset.x += gameController.GetSpeed() * Time.deltaTime;
         mat.SetTextureOffset("_MainTex", offset);
     }
 }

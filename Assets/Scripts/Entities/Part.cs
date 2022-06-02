@@ -19,9 +19,7 @@ public class Part : MonoBehaviour {
     }
     
     void Update() 
-    {
-        if(gameManager.gameState != EGameState.PLAYING) return;
-        
+    {   
         myRB.velocity = new Vector2(speed, 0f);
         if(!hasActiveObstacles())
         {
@@ -47,7 +45,7 @@ public class Part : MonoBehaviour {
         this.speed = speed;
         foreach(GameObject obs in this.obstacles) {
             Obstacle obstacle = obs.GetComponent<Obstacle>();
-            obstacle.speed = speed;
+            // obstacle.speed = speed;
         }
     }
 }

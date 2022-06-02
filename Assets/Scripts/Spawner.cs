@@ -101,7 +101,7 @@ public class Spawner : MonoBehaviour
                 foreach (GameObject obstacle in obstaclesToSpawn)
                 {
                     Obstacle script = obstacle.GetComponent<Obstacle>();
-                    script.speed = obstacleSpeed * -1;
+                    //script.speed = obstacleSpeed * -1;
                 }
                 
                 timeUntilSwitch--;
