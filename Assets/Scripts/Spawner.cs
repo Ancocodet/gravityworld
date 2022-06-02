@@ -62,7 +62,7 @@ public class Spawner : MonoBehaviour
                 GameObject newObstacle = obstaclesToSpawn[index];
                 Obstacle obstacleInstance = newObstacle.GetComponent<Obstacle>();
                 
-                obstacleInstance.resetGravity();
+                //obstacleInstance.resetGravity();
                 
                 newObstacle.SetActive(true);
                 newObstacle.transform.position = transform.position;

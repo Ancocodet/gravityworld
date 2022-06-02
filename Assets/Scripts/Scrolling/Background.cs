@@ -18,7 +18,7 @@ public class Background : MonoBehaviour {
         float height = Camera.main.orthographicSize * 2;
         float width = height * Screen.width / Screen.height;
       
-        transform.localScale = new Vector3(width, height - 2f, 0);
+        transform.localScale = new Vector3(width, height - 2f, -1);
     }
 
     void Update()

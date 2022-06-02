@@ -3,13 +3,13 @@
 public class ObstacleBlock : MonoBehaviour
 {
     
-    public bool top = false;
-    public bool right = false;
+    [SerializeField] private bool right = false;
+    [SerializeField] private GameObject parentObject;
     
     void Awake()
     {
         float x = right ? (Camera.main.orthographicSize * 2) + transform.localScale.x/2 : (Camera.main.orthographicSize * -2f) - transform.localScale.x/2;
-        float y = top ? Camera.main.orthographicSize - (transform.localScale.y/2) : (Camera.main.orthographicSize * -1f) + (transform.localScale.y/2);
+        float y = parentObject.transform.position.y;
         transform.position = new Vector2(x, y);
     }
     
