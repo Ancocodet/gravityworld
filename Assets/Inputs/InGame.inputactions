@@ -208,6 +208,17 @@
                 },
                 {
                     "name": "",
+                    "id": "09643a05-c61e-4843-a84d-4259ea086123",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "Hold(duration=1)",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "126bef54-66a8-4916-ac8e-ab9907a78b3a",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -219,22 +230,22 @@
                 },
                 {
                     "name": "",
-                    "id": "3e660ce0-f607-4785-afd8-d7c54b9b3519",
-                    "path": "<Touchscreen>/touch*/press",
+                    "id": "4e89d97d-c4eb-424b-90e4-db035620f7bb",
+                    "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Touch",
+                    "groups": "Gamepad",
                     "action": "Switch Gravity",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "4e89d97d-c4eb-424b-90e4-db035620f7bb",
-                    "path": "<Gamepad>/dpad/down",
+                    "id": "5a5ed018-36fb-4a1c-a163-32598a106736",
+                    "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Touch",
                     "action": "Switch Gravity",
                     "isComposite": false,
                     "isPartOfComposite": false
