@@ -17,10 +17,13 @@ public class PartSpawner : MonoBehaviour
     public float speedChange = 0.075f;
 
     public float moveSpeed = 10f;
+    
+    private GameManager gameManager;
 
     void Awake()
     {
         initParts();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     void Start()
@@ -48,40 +51,43 @@ public class PartSpawner : MonoBehaviour
     {
 
         yield return new WaitForSeconds(Random.Range(minTime, maxTime));
-
-        int index = Random.Range(0, partsToSpawn.Count);
-
-        while (true)
+        
+        if(gameManager.gameState == EGameState.PLAYING)
         {
-            if (!partsToSpawn[index].activeInHierarchy)
+            int index = Random.Range(0, partsToSpawn.Count);
+            
+            while (true)
             {
-                GameObject newObstacle = partsToSpawn[index];
-                Obstacle obstacleInstance = newObstacle.GetComponent<Obstacle>();
-                
-                obstacleInstance.resetGravity();
-                
-                newObstacle.SetActive(true);
-                newObstacle.transform.position = transform.position;
-                
-                if (minTime > 0.2f)
+                if (!partsToSpawn[index].activeInHierarchy)
                 {
-                    minTime -= timeChange;
+                    GameObject newObstacle = partsToSpawn[index];
+                    Obstacle obstacleInstance = newObstacle.GetComponent<Obstacle>();
+                    
+                    //obstacleInstance.resetGravity();
+                    
+                    newObstacle.SetActive(true);
+                    newObstacle.transform.position = transform.position;
+                    
+                    if (minTime > 0.2f)
+                    {
+                        minTime -= timeChange;
+                    }
+                    if (maxTime > 0.4f)
+                    {
+                        maxTime -= timeChange;
+                    }
+    
+                    moveSpeed += speedChange;
+    
+                    foreach (GameObject part in partsToSpawn)
+                    {
+                        Part script = part.GetComponent<Part>();
+                        script.updateSpeed(moveSpeed * -1);
+                    }
+                    break;
+                } else {
+                    index = Random.Range(0, partsToSpawn.Count);
                 }
-                if (maxTime > 0.4f)
-                {
-                    maxTime -= timeChange;
-                }
-
-                moveSpeed += speedChange;
-
-                foreach (GameObject part in partsToSpawn)
-                {
-                    Part script = part.GetComponent<Part>();
-                    script.updateSpeed(moveSpeed * -1);
-                }
-                break;
-            } else {
-                index = Random.Range(0, partsToSpawn.Count);
             }
         }
 

@@ -9,14 +9,17 @@ public class Part : MonoBehaviour {
    
     public GameObject self;
     public GameObject[] obstacles;
+    
+    private GameManager gameManager;
 
     void Start() 
     {
         myRB = GetComponent<Rigidbody2D>();
+        gameManager = FindObjectOfType<GameManager>();
     }
     
     void Update() 
-    {
+    {   
         myRB.velocity = new Vector2(speed, 0f);
         if(!hasActiveObstacles())
         {
@@ -42,7 +45,7 @@ public class Part : MonoBehaviour {
         this.speed = speed;
         foreach(GameObject obs in this.obstacles) {
             Obstacle obstacle = obs.GetComponent<Obstacle>();
-            obstacle.speed = speed;
+            // obstacle.speed = speed;
         }
     }
 }

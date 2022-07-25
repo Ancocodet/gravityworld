@@ -375,7 +375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 37a2d28a833b1784882fe2a5684f6b19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85f125569fec4b34e8ceea2f0bcaefd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1179,7 +1179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 37a2d28a833b1784882fe2a5684f6b19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85f125569fec4b34e8ceea2f0bcaefd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1483,6 +1483,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4eb4d189-07c1-4299-b3f4-36c875a3ca6d
     m_ActionName: UI/Resume[/XInputControllerWindows/start,/XInputControllerWindows/select,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2139572917}
+        m_TargetAssemblyTypeName: Cube, Assembly-CSharp
+        m_MethodName: switchGravity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7fd38eb3-2519-4b26-bf80-036c2aea942d
+    m_ActionName: Player/Switch Gravity[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2751,7 +2767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 37a2d28a833b1784882fe2a5684f6b19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85f125569fec4b34e8ceea2f0bcaefd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2936,6 +2952,7 @@ MonoBehaviour:
   player: {fileID: 2139572911}
   spawner: {fileID: 156550529}
   multiplierView: {fileID: 1587659764}
+  multiplierDecrease: 2
   pointCooldown: 0.2
 --- !u!4 &1798086335
 Transform:
@@ -3066,7 +3083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 37a2d28a833b1784882fe2a5684f6b19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85f125569fec4b34e8ceea2f0bcaefd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8094,7 +8111,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 37a2d28a833b1784882fe2a5684f6b19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85f125569fec4b34e8ceea2f0bcaefd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8406,7 +8423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 37a2d28a833b1784882fe2a5684f6b19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85f125569fec4b34e8ceea2f0bcaefd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

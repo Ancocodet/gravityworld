@@ -6,6 +6,7 @@ public class MovingObstacle : MonoBehaviour
 {
 
     private Rigidbody2D myRB;
+    private GameManager gameManager;
 
     public bool elevation = false;
     
@@ -15,11 +16,13 @@ public class MovingObstacle : MonoBehaviour
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
+        gameManager = FindObjectOfType<GameManager>();
     }
     
 
     void Update()
     {
+        if(gameManager.gameState != EGameState.PLAYING) return;
         if(rotation)
         {
             myRB.rotation += rotationSpeed;

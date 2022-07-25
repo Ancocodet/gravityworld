@@ -6,12 +6,13 @@
             "id": "f99b4efc-113c-4eb3-9137-21f651023bc1",
             "actions": [
                 {
-                    "name": "Up",
+                    "name": "Move Up",
                     "type": "Button",
                     "id": "f85dc44c-992b-4312-a925-b3726db8bfd0",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Move Down",
@@ -19,7 +20,17 @@
                     "id": "8e9546dc-d0f3-4b0c-8595-abfeb69df626",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Switch Gravity",
+                    "type": "Button",
+                    "id": "7fd38eb3-2519-4b26-bf80-036c2aea942d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Pause",
@@ -27,7 +38,8 @@
                     "id": "c0f33cb2-57c2-4967-9815-7b6754bb42a3",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Boost",
@@ -35,21 +47,11 @@
                     "id": "6db8ef6c-9497-4bb1-a669-cd8a9a3e7d80",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "d73dee2d-f770-4ff7-a255-441996cf1875",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Up",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "9e75fe44-4d03-4df4-971e-f781363349d8",
@@ -57,7 +59,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Up",
+                    "action": "Move Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -68,29 +70,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Up",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3e660ce0-f607-4785-afd8-d7c54b9b3519",
-                    "path": "<Touchscreen>/touch*/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
-                    "action": "Up",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f5b802bd-13a4-47f0-933c-bbcf4c0e89ee",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Up",
+                    "action": "Move Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -101,7 +81,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Up",
+                    "action": "Move Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -118,44 +98,11 @@
                 },
                 {
                     "name": "",
-                    "id": "4d6d95e3-9d92-436d-968f-3bc3f35e5c63",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Move Down",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "90233da2-55b5-4b82-9793-12b3930c9a23",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Move Down",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ed8e919d-5a20-401a-b871-b1e646e95597",
-                    "path": "<Touchscreen>/touch*/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
-                    "action": "Move Down",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4e89d97d-c4eb-424b-90e4-db035620f7bb",
-                    "path": "<Gamepad>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
                     "action": "Move Down",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -258,6 +205,39 @@
                     "action": "Boost",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "126bef54-66a8-4916-ac8e-ab9907a78b3a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Switch Gravity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e660ce0-f607-4785-afd8-d7c54b9b3519",
+                    "path": "<Touchscreen>/touch*/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "Switch Gravity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e89d97d-c4eb-424b-90e4-db035620f7bb",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Switch Gravity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -271,7 +251,8 @@
                     "id": "18a343c5-37aa-4592-b1e7-f94e205f7a83",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Submit",
@@ -279,7 +260,8 @@
                     "id": "c5a6d040-70cd-4cfc-8f27-0ce9dc479249",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Cancel",
@@ -287,15 +269,17 @@
                     "id": "1c53be28-dee6-4b22-a8ec-27b251d67694",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Point",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "9018d08f-d97b-4cff-8a8c-ec7a2bcef41e",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Click",
@@ -303,7 +287,8 @@
                     "id": "7871dd5f-9540-4b18-b146-92b19457c7f1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "ScrollWheel",
@@ -311,7 +296,8 @@
                     "id": "36f6443b-a8c2-4fed-b3b4-7945b05edaec",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "MiddleClick",
@@ -319,7 +305,8 @@
                     "id": "a278b2ef-d9a5-4823-b53c-d06ef411a2b5",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "RightClick",
@@ -327,7 +314,8 @@
                     "id": "b8d33896-7723-49fe-beb2-3831531c7275",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TrackedDevicePosition",
@@ -335,7 +323,8 @@
                     "id": "64c7c745-130f-4f33-973a-009052d5a6b7",
                     "expectedControlType": "Vector3",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "TrackedDeviceOrientation",
@@ -343,7 +332,8 @@
                     "id": "918ed548-790c-4053-a25c-554bc4a4953a",
                     "expectedControlType": "Quaternion",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Resume",
@@ -351,7 +341,8 @@
                     "id": "4eb4d189-07c1-4299-b3f4-36c875a3ca6d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [

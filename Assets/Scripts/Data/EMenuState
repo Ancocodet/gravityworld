@@ -1,0 +1,8 @@
+public enum EMenuState
+{
+    
+    INGAME,
+    PAUSED,
+    FAILED
+    
+}

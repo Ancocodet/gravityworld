@@ -62,7 +62,7 @@ public class Spawner : MonoBehaviour
                 GameObject newObstacle = obstaclesToSpawn[index];
                 Obstacle obstacleInstance = newObstacle.GetComponent<Obstacle>();
                 
-                obstacleInstance.resetGravity();
+                //obstacleInstance.resetGravity();
                 
                 newObstacle.SetActive(true);
                 newObstacle.transform.position = transform.position;
@@ -101,7 +101,7 @@ public class Spawner : MonoBehaviour
                 foreach (GameObject obstacle in obstaclesToSpawn)
                 {
                     Obstacle script = obstacle.GetComponent<Obstacle>();
-                    script.speed = obstacleSpeed * -1;
+                    //script.speed = obstacleSpeed * -1;
                 }
                 
                 timeUntilSwitch--;

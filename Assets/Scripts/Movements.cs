@@ -9,9 +9,12 @@ public class Movements : MonoBehaviour {
     private Vector2 offset = Vector2.zero;
     private Material mat;
 
+    private GameManager gameManager;
+
     void Start()
     {
-
+        gameManager = FindObjectOfType<GameManager>();
+        
         mat = GetComponent<Renderer>().material;
         offset = mat.GetTextureOffset("_MainTex");
 
@@ -32,7 +35,7 @@ public class Movements : MonoBehaviour {
         }
         else
         {
-            transform.localScale = new Vector3(width + 4f, 2, 0);
+            transform.localScale = new Vector3(width, 1, 0);
         }
     }
 
