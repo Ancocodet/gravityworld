@@ -30,7 +30,16 @@ public class Ground : MonoBehaviour {
 
     void Update()
     {
-        offset.x += gameController.GetSpeed() * Time.deltaTime;
+        if(moving)
+        {
+            offset.x += gameController.GetSpeed() * Time.deltaTime;
+            mat.SetTextureOffset("_MainTex", offset);
+        }
+    }
+    
+    public void Move(float movement)
+    {
+        offset.x += (movement * (sky ? -1f : 1f)) * Time.deltaTime;
         mat.SetTextureOffset("_MainTex", offset);
     }
 }
