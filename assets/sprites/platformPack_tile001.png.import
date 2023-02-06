@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/platformPack_tile001.png-28d9d5e4caa6fb89c11f729f4fe6238d.image"
+
+[deps]
+
+source_file="res://assets/sprites/platformPack_tile001.png"
+dest_files=[ "res://.import/platformPack_tile001.png-28d9d5e4caa6fb89c11f729f4fe6238d.image" ]
+
+[params]
+
