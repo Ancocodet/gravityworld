@@ -26,6 +26,10 @@ boot_splash/image="res://assets/logo/ancozockt.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0.054902, 0.0745098, 0.101961, 1 )
 
+[display]
+
+window/handheld/orientation="sensor_landscape"
+
 [editor]
 
 version_control_autoload_on_startup=true
