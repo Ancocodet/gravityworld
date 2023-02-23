@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/kenney_pixel.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/prefabs/menu/MenuButton.gd" type="Script" id=2]
+
+[node name="MenuButton" type="Button"]
+margin_right = 824.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 360, 60 )
+flat = true
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 360, 60 )
+custom_fonts/font = ExtResource( 1 )
+text = "Label"

@@ -8,6 +8,7 @@ onready var _collision_shape = $CollisionShape2D
 onready var _area_shape = $Area2D/AreaShape
 
 export(int) var jump_force = 600;
+# warning-ignore:export_hint_type_mistmatch
 export(float) var gravity = 1200
 
 var velocity = Vector2()
@@ -18,6 +19,7 @@ var ducking = false
 func _ready():
 	self.position = Vector2(200, get_viewport_rect().size.y - 64)
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if jumping or !is_on_ground():
 		_animate_sprite.play("jump")
@@ -85,6 +87,7 @@ func is_on_ground():
 
 var spawned = false
 
+# warning-ignore:unused_argument
 func _on_obstacle_detected(body):
 	if spawned:
 		hide()
