@@ -1,0 +1,290 @@
+[gd_scene load_steps=11 format=3 uid="uid://5tv73yjhxlsy"]
+
+[ext_resource type="Script" path="res://scripts/menu/settings_popup.gd" id="1_jd6kn"]
+[ext_resource type="Texture2D" uid="uid://c45shcnn5bwgc" path="res://icons/background.png" id="2_6q284"]
+[ext_resource type="Texture2D" uid="uid://by8kp5a0uq6qx" path="res://sprites/popup/ui_popup_with_x.png" id="3_2l8ic"]
+[ext_resource type="FontFile" uid="uid://42b357ol7cre" path="res://fonts/Dimbo Regular.ttf" id="4_pjw7l"]
+[ext_resource type="Texture2D" uid="uid://bv5ka8r0ws3wo" path="res://sprites/buttons/checkbox/on.png" id="5_3tdqq"]
+[ext_resource type="Texture2D" uid="uid://djkfveixegrno" path="res://sprites/buttons/checkbox/off.png" id="6_fw45s"]
+
+[sub_resource type="Animation" id="Animation_724vw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 750)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:anchors_preset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+
+[sub_resource type="Animation" id="Animation_pqtp0"]
+resource_name = "fade_in"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 750), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterContainer:anchors_preset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+
+[sub_resource type="Animation" id="Animation_tqwo5"]
+resource_name = "fade_out"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 750)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterContainer:anchors_preset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ul2q0"]
+_data = {
+"RESET": SubResource("Animation_724vw"),
+"fade_in": SubResource("Animation_pqtp0"),
+"fade_out": SubResource("Animation_tqwo5")
+}
+
+[node name="PrivacyPopUp" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_jd6kn")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6q284")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 750.0
+offset_right = 410.0
+offset_bottom = 1238.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PopupBackground" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("3_2l8ic")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PopupBackground"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.5
+offset_right = 163.5
+offset_bottom = 270.0
+grow_horizontal = 2
+theme_override_constants/separation = 75
+
+[node name="Title" type="RichTextLabel" parent="CenterContainer/PopupBackground/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/normal_font = ExtResource("4_pjw7l")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]OPTIONS[/center]"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PopupBackground/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Sounds" type="HBoxContainer" parent="CenterContainer/PopupBackground/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/PopupBackground/VBoxContainer/VBoxContainer/Sounds"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.411765, 0.407843, 0.407843, 1)
+theme_override_fonts/normal_font = ExtResource("4_pjw7l")
+theme_override_font_sizes/normal_font_size = 40
+text = "SOUNDS"
+scroll_active = false
+
+[node name="SoundsSwitch" type="CheckButton" parent="CenterContainer/PopupBackground/VBoxContainer/VBoxContainer/Sounds"]
+layout_mode = 2
+theme_override_icons/checked = ExtResource("5_3tdqq")
+theme_override_icons/checked_disabled = ExtResource("5_3tdqq")
+theme_override_icons/unchecked = ExtResource("6_fw45s")
+theme_override_icons/unchecked_disabled = ExtResource("6_fw45s")
+theme_override_icons/checked_mirrored = ExtResource("5_3tdqq")
+theme_override_icons/checked_disabled_mirrored = ExtResource("5_3tdqq")
+theme_override_icons/unchecked_mirrored = ExtResource("6_fw45s")
+theme_override_icons/unchecked_disabled_mirrored = ExtResource("6_fw45s")
+
+[node name="Effects" type="HBoxContainer" parent="CenterContainer/PopupBackground/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/PopupBackground/VBoxContainer/VBoxContainer/Effects"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.411765, 0.407843, 0.407843, 1)
+theme_override_fonts/normal_font = ExtResource("4_pjw7l")
+theme_override_font_sizes/normal_font_size = 40
+text = "MUSIC"
+scroll_active = false
+
+[node name="EffectSwitch" type="CheckButton" parent="CenterContainer/PopupBackground/VBoxContainer/VBoxContainer/Effects"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.411765, 0.407843, 0.407843, 1)
+theme_override_fonts/font = ExtResource("4_pjw7l")
+theme_override_font_sizes/font_size = 40
+theme_override_icons/checked = ExtResource("5_3tdqq")
+theme_override_icons/unchecked = ExtResource("6_fw45s")
+theme_override_icons/checked_mirrored = ExtResource("5_3tdqq")
+theme_override_icons/unchecked_mirrored = ExtResource("6_fw45s")
+
+[node name="Exit" type="Button" parent="CenterContainer/PopupBackground"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -46.0
+offset_right = -1.0
+offset_bottom = 45.0
+grow_horizontal = 0
+action_mode = 0
+flat = true
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ul2q0")
+}
+
+[connection signal="pressed" from="CenterContainer/PopupBackground/VBoxContainer/VBoxContainer/Sounds/SoundsSwitch" to="." method="_on_sounds_switch_pressed"]
+[connection signal="pressed" from="CenterContainer/PopupBackground/VBoxContainer/VBoxContainer/Effects/EffectSwitch" to="." method="_on_music_switch_pressed"]
+[connection signal="pressed" from="CenterContainer/PopupBackground/Exit" to="." method="_on_exit_pressed"]

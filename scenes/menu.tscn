@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://dhmmiaf1ah3bh"]
+
+[ext_resource type="Script" uid="uid://v0nmsg63rl48" path="res://scripts/controller/menu.gd" id="1_dvdwi"]
+[ext_resource type="Texture2D" uid="uid://kgigrnt8svx1" path="res://sprites/popup/background.png" id="2_lxbwf"]
+[ext_resource type="Texture2D" uid="uid://cw33xjcaqt258" path="res://sprites/popup/highlight_background.png" id="3_2vcso"]
+[ext_resource type="Texture2D" uid="uid://dsby6alqeritp" path="res://sprites/hud/hud_star.png" id="5_hp6sl"]
+[ext_resource type="FontFile" uid="uid://42b357ol7cre" path="res://fonts/Dimbo Regular.ttf" id="6_rvni5"]
+[ext_resource type="Texture2D" uid="uid://do2miqwt7lu65" path="res://sprites/hud/hud_heart.png" id="7_62vnu"]
+[ext_resource type="PackedScene" uid="uid://dw82floioaalk" path="res://scenes/menu/main_buttons.tscn" id="7_clh6x"]
+[ext_resource type="Texture2D" uid="uid://byvqb7m3xbt2k" path="res://sprites/buttons/play/play_test.png" id="7_wqycn"]
+[ext_resource type="Texture2D" uid="uid://ddj241umglsug" path="res://sprites/buttons/play/play_test_down.png" id="8_td88a"]
+[ext_resource type="PackedScene" uid="uid://5tv73yjhxlsy" path="res://scenes/menu/settings_popup.tscn" id="11_ogrjo"]
+[ext_resource type="PackedScene" uid="uid://djktlcora4w7i" path="res://scenes/menu/loading_screen.tscn" id="14_q4ttw"]
+[ext_resource type="PackedScene" uid="uid://bffyximb7dnif" path="res://scenes/menu/privacy_pop_up.tscn" id="15_7hmdb"]
+
+[node name="Menu" type="Control" unique_id=1298339796]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_dvdwi")
+
+[node name="Background" type="TextureRect" parent="." unique_id=456922782]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_lxbwf")
+expand_mode = 2
+
+[node name="BackgroundHighlight" type="TextureRect" parent="." unique_id=687229499]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_2vcso")
+expand_mode = 2
+
+[node name="MenuContainer" type="MarginContainer" parent="." unique_id=1773912926]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 30
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MenuContainer" unique_id=1512446443]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Buttons" parent="MenuContainer/ButtonContainer" unique_id=546347055 instance=ExtResource("7_clh6x")]
+layout_mode = 2
+
+[node name="PlayContainer" type="MarginContainer" parent="MenuContainer" unique_id=2014232026]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 150
+
+[node name="PlayButton" type="TextureButton" parent="MenuContainer/PlayContainer" unique_id=363631742]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("7_wqycn")
+texture_pressed = ExtResource("8_td88a")
+texture_hover = ExtResource("8_td88a")
+texture_focused = ExtResource("7_wqycn")
+
+[node name="StarContainer" type="MarginContainer" parent="MenuContainer/PlayContainer" unique_id=1505050087]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="Stars" type="TextureRect" parent="MenuContainer/PlayContainer/StarContainer" unique_id=88826914]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("5_hp6sl")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuContainer/PlayContainer/StarContainer" unique_id=1171484455]
+layout_mode = 2
+theme_override_constants/margin_left = 85
+theme_override_constants/margin_right = 35
+
+[node name="StarCounter" type="RichTextLabel" parent="MenuContainer/PlayContainer/StarContainer/MarginContainer" unique_id=2064527703]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.972549, 0.878431, 0.478431, 1)
+theme_override_fonts/normal_font = ExtResource("6_rvni5")
+theme_override_font_sizes/normal_font_size = 65
+bbcode_enabled = true
+text = "[center]3[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="HeartsContainer" type="MarginContainer" parent="MenuContainer/PlayContainer" unique_id=606391273]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Hearts" type="TextureRect" parent="MenuContainer/PlayContainer/HeartsContainer" unique_id=658456237]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("7_62vnu")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuContainer/PlayContainer/HeartsContainer" unique_id=394887222]
+layout_mode = 2
+theme_override_constants/margin_left = 85
+theme_override_constants/margin_right = 35
+
+[node name="HeartCounter" type="RichTextLabel" parent="MenuContainer/PlayContainer/HeartsContainer/MarginContainer" unique_id=1050574940]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.92549, 0.494118, 0.588235, 1)
+theme_override_fonts/normal_font = ExtResource("6_rvni5")
+theme_override_font_sizes/normal_font_size = 65
+bbcode_enabled = true
+text = "[center]3[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="SettingsPopUp" parent="." unique_id=65691652 instance=ExtResource("11_ogrjo")]
+layout_mode = 1
+
+[node name="LoadingScreen" parent="." unique_id=228823237 instance=ExtResource("14_q4ttw")]
+layout_mode = 1
+
+[node name="PrivacyPopUp" parent="." unique_id=1762464082 instance=ExtResource("15_7hmdb")]
+visible = false
+layout_mode = 1
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2068216710]
+
+[connection signal="toggle_settings" from="MenuContainer/ButtonContainer/Buttons" to="." method="_on_buttons_toggle_settings"]
+[connection signal="pressed" from="MenuContainer/PlayContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="accept_policy" from="PrivacyPopUp" to="." method="_on_policy_accepted"]

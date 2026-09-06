@@ -1,0 +1,200 @@
+[gd_scene load_steps=10 format=3 uid="uid://bffyximb7dnif"]
+
+[ext_resource type="Texture2D" uid="uid://c45shcnn5bwgc" path="res://icons/background.png" id="2_4h6rc"]
+[ext_resource type="Script" path="res://scripts/menu/privacy_pop_up.gd" id="2_ofudb"]
+[ext_resource type="Texture2D" uid="uid://bokll41gl0r7w" path="res://sprites/popup/popup_background.png" id="3_mlumj"]
+[ext_resource type="FontFile" uid="uid://dad6fprk2wmxm" path="res://fonts/pixeldroidBoticRegular.ttf" id="4_nr1l0"]
+[ext_resource type="Texture2D" uid="uid://b6coeyeparrqq" path="res://sprites/buttons/button_1.png" id="5_iei4v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0a2fy"]
+texture = ExtResource("5_iei4v")
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 8.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="Animation" id="Animation_pqtp0"]
+resource_name = "fade_in"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 750), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tqwo5"]
+resource_name = "fade_out"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 750)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ul2q0"]
+_data = {
+"fade_in": SubResource("Animation_pqtp0"),
+"fade_out": SubResource("Animation_tqwo5")
+}
+
+[node name="PrivacyPopUp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ofudb")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4h6rc")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PopUpBackground" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("3_mlumj")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PopUpBackground"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 35
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/PopUpBackground/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 15
+theme_override_fonts/normal_font = ExtResource("4_nr1l0")
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
+text = "[center]Privacy Policy[/center]"
+fit_content = true
+
+[node name="PopUpContainer" type="MarginContainer" parent="CenterContainer/PopUpBackground"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -194.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 75
+
+[node name="PopUpBox" type="VBoxContainer" parent="CenterContainer/PopUpBackground/PopUpContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="PolicyInformation" type="RichTextLabel" parent="CenterContainer/PopUpBackground/PopUpContainer/PopUpBox"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_nr1l0")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "To play our game you must accept our privacy policy.
+You can find it [url=https://ancozockt.info/privacy/]here[/url]."
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="AcceptButton" type="Button" parent="CenterContainer/PopUpBackground/PopUpContainer/PopUpBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_nr1l0")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_0a2fy")
+action_mode = 0
+text = "ACCEPT"
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ul2q0")
+}
+
+[connection signal="pressed" from="CenterContainer/PopUpBackground/PopUpContainer/PopUpBox/AcceptButton" to="." method="_on_accept_button_pressed"]

@@ -1,0 +1,9 @@
+[config]
+
+name="GodotGooglePlayServices"
+binary_type="local"
+binary="GodotGooglePlayServices.0.1.0.release.aar"
+
+[dependencies]
+
+remote=["com.google.android.gms:play-services-games-v2:17.0.0"]

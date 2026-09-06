@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dmqpe3n4mfu6v"]
+
+[ext_resource type="Script" uid="uid://cw6e67r3s5x24" path="res://scripts/menu/ingame/score.gd" id="1_db0c2"]
+[ext_resource type="Texture2D" uid="uid://dhptr22r51x3d" path="res://sprites/grounds/grass.png" id="3_lemfl"]
+[ext_resource type="Script" uid="uid://cqqw1ae54jn77" path="res://scripts/controller/ground.gd" id="3_wx8nn"]
+[ext_resource type="FontFile" uid="uid://bw3vum0mbh5uv" path="res://fonts/open_sans/open_sans-bold.ttf" id="5_spqej"]
+
+[node name="InGame" type="Node2D" unique_id=1590321377]
+script = ExtResource("1_db0c2")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1253206312]
+visible = false
+color = Color(0.641934, 0.641934, 0.641934, 1)
+
+[node name="Top" type="Node" parent="." unique_id=58926001]
+script = ExtResource("3_wx8nn")
+texture = ExtResource("3_lemfl")
+top = true
+
+[node name="Bottom" type="Node" parent="." unique_id=53480179]
+script = ExtResource("3_wx8nn")
+texture = ExtResource("3_lemfl")
+
+[node name="Countdown" type="RichTextLabel" parent="." unique_id=1485468286]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 540.0
+offset_top = 250.0
+offset_right = 640.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("5_spqej")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "5"
+scroll_active = false
+shortcut_keys_enabled = false

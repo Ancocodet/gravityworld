@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw82floioaalk"]
+
+[ext_resource type="Script" path="res://scripts/menu/main_buttons.gd" id="1_44yml"]
+[ext_resource type="Texture2D" uid="uid://b7ki0hv6n7mvf" path="res://sprites/buttons/leaderboard/leaderboard_v2_up.svg" id="2_kkvbn"]
+[ext_resource type="Texture2D" uid="uid://bh0sv5uq4vglq" path="res://sprites/buttons/exit/exit_test.png" id="3_7adxm"]
+[ext_resource type="Texture2D" uid="uid://ttufdwtyjdok" path="res://sprites/buttons/settings/settings_v2_up.svg" id="4_essxx"]
+
+[node name="Buttons" type="HBoxContainer"]
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+alignment = 1
+script = ExtResource("1_44yml")
+
+[node name="AchievementsButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("2_kkvbn")
+texture_focused = ExtResource("2_kkvbn")
+stretch_mode = 0
+
+[node name="ExitButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("3_7adxm")
+texture_focused = ExtResource("3_7adxm")
+stretch_mode = 0
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("4_essxx")
+texture_focused = ExtResource("4_essxx")
+stretch_mode = 0
+
+[connection signal="pressed" from="AchievementsButton" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

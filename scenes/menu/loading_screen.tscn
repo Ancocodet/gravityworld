@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=3 uid="uid://djktlcora4w7i"]
+
+[ext_resource type="Texture2D" uid="uid://c45shcnn5bwgc" path="res://icons/background.png" id="1_u7lbq"]
+[ext_resource type="Script" path="res://scripts/menu/loading_screen.gd" id="2_pj1hv"]
+[ext_resource type="Texture2D" uid="uid://k2cqossceo87" path="res://sprites/progress/pixel_logo.png" id="3_x0cen"]
+[ext_resource type="Texture2D" uid="uid://doq0t1j3kdw6h" path="res://sprites/progress/progress_background.png" id="4_b0lcr"]
+[ext_resource type="Texture2D" uid="uid://c5r5an1x716w4" path="res://sprites/progress/progress_fill.png" id="5_cbgs8"]
+
+[sub_resource type="SystemFont" id="SystemFont_1hx3g"]
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6i1vu"]
+texture = ExtResource("4_b0lcr")
+texture_margin_left = 30.0
+texture_margin_right = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y0b78"]
+texture = ExtResource("5_cbgs8")
+texture_margin_left = 50.0
+texture_margin_right = 50.0
+
+[sub_resource type="Animation" id="Animation_7exju"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_l1qyg"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_23iye"]
+_data = {
+"RESET": SubResource("Animation_7exju"),
+"fade_out": SubResource("Animation_l1qyg")
+}
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_pj1hv")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_u7lbq")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_right = 256.0
+offset_bottom = 512.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_x0cen")
+expand_mode = 1
+
+[node name="LoadingScreenContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -235.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="ProgressBar" type="ProgressBar" parent="LoadingScreenContainer"]
+texture_filter = 2
+texture_repeat = 3
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("SystemFont_1hx3g")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/background = SubResource("StyleBoxTexture_6i1vu")
+theme_override_styles/fill = SubResource("StyleBoxTexture_y0b78")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_23iye")
+}
